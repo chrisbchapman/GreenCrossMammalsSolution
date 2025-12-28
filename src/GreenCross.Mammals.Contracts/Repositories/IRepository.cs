@@ -1,4 +1,4 @@
-﻿namespace GreenCross.Mammals.Contracts.Repositories;
+namespace GreenCross.Mammals.Contracts.Repositories;
 
 public interface IRepository<TEntity> where TEntity : class
 {
@@ -13,7 +13,7 @@ public interface IRepository<TEntity> where TEntity : class
     /// <remarks>
     /// This method is not asynchronous and does not return a Task because underlying database operations are synchronous.
     /// </remarks>
-    void Update(TEntity entity); // Changed: removed async, no Task
+    void Update(TEntity entity, CancellationToken cancellationToken); // Changed: removed async, no Task
     Task DeleteAsync(int id, CancellationToken cancellationToken = default);
     Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default);
 

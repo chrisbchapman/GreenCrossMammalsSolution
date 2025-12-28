@@ -1,4 +1,4 @@
-﻿using GreenCross.Mammals.BLL;
+using GreenCross.Mammals.BLL;
 using GreenCross.Mammals.Contracts.Data;
 using GreenCross.Mammals.Contracts.Repositories;
 using GreenCross.Mammals.Contracts.Services;
@@ -72,10 +72,12 @@ public static class ServiceRegistration
 
         // Repositories (Data implements Contracts)
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-        services.AddScoped<IFirstEntityRepository, FirstEntityRepository>();
+        services.AddScoped<IRecorderRepository, RecorderRepository>();
+        services.AddScoped<ILocationRepository, LocationRepository>();
 
         // BLL services
-        services.AddScoped<IFirstEntityService, FirstEntityService>();
+        services.AddScoped<IRecorderService, RecorderService>();
+        services.AddScoped<ILocationService, LocationService>();
 
         return services;
     }

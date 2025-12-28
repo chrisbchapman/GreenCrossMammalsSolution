@@ -1,4 +1,4 @@
-﻿using System.Linq.Expressions;
+using System.Linq.Expressions;
 using GreenCross.Mammals.Contracts.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -33,7 +33,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
         return entity;
     }
 
-    public virtual void Update(TEntity entity)
+    public virtual void Update(TEntity entity, CancellationToken cancellationToken)
     {
         _dbSet.Update(entity);
     }

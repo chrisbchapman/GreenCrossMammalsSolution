@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using GreenCross.Mammals.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +11,7 @@ namespace GreenCross.Mammals.Data
         {
         }
 
-        public DbSet<FirstEntity> FirstEntities => Set<FirstEntity>();
+        public DbSet<Recorder> FirstEntities => Set<Recorder>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
