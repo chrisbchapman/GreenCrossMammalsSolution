@@ -1,4 +1,4 @@
-{
+﻿{
   "$schema": "http://json.schemastore.org/template",
   "author": "Your Name",
   "classifications": ["Solution", "Clean Architecture", "WinForms"],
@@ -9,13 +9,13 @@
     "language": "C#",
     "type": "solution"
   },
-  "sourceName": "GreenCross.App",
+  "sourceName": "GreenCross.Mammals",
   "preferNameDirectory": true,
   "symbols": {
     "namespace": {
       "type": "parameter",
       "datatype": "text",
-      "replaces": "GreenCross.App",
+      "replaces": "GreenCross.Mammals",
       "defaultValue": "MyApp",
       "description": "The root namespace for the solution"
     },

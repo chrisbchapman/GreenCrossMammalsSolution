@@ -18,29 +18,29 @@ $rootPath = Split-Path -Parent $PSScriptRoot
 
 Write-Host "Renaming solution from '$oldName' to '$NewName'..." -ForegroundColor Cyan
 
-# Rename files
-Get-ChildItem -Path $rootPath -Recurse -File | Where-Object {
-    $_.Name -like "*$oldName*" -and $_.FullName -notlike "*\.git\*" -and $_.FullName -notlike "*\bin\*" -and $_.FullName -notlike "*\obj\*"
-} | ForEach-Object {
-    $newFileName = $_.Name.Replace($oldName, $NewName)
-    $newPath = Join-Path $_.DirectoryName $newFileName
-    Write-Host "  Renaming file: $($_.Name) -> $newFileName" -ForegroundColor Yellow
-    Rename-Item -Path $_.FullName -NewName $newFileName
-}
-
-# Rename directories
+# Rename directories FIRST (deepest to shallowest to avoid path issues)
 Get-ChildItem -Path $rootPath -Recurse -Directory | Where-Object {
     $_.Name -like "*$oldName*" -and $_.FullName -notlike "*\.git\*" -and $_.FullName -notlike "*\bin\*" -and $_.FullName -notlike "*\obj\*"
 } | Sort-Object -Property FullName -Descending | ForEach-Object {
     $newDirName = $_.Name.Replace($oldName, $NewName)
     $newPath = Join-Path (Split-Path $_.FullName) $newDirName
     Write-Host "  Renaming directory: $($_.Name) -> $newDirName" -ForegroundColor Yellow
-    Rename-Item -Path $_.FullName -NewName $newDirName
+    Rename-Item -Path $_.FullName -NewName $newDirName -Force
+}
+
+# Rename files AFTER directories are renamed
+Get-ChildItem -Path $rootPath -Recurse -File | Where-Object {
+    $_.Name -like "*$oldName*" -and $_.FullName -notlike "*\.git\*" -and $_.FullName -notlike "*\bin\*" -and $_.FullName -notlike "*\obj\*"
+} | ForEach-Object {
+    $newFileName = $_.Name.Replace($oldName, $NewName)
+    $newPath = Join-Path $_.DirectoryName $newFileName
+    Write-Host "  Renaming file: $($_.Name) -> $newFileName" -ForegroundColor Yellow
+    Rename-Item -Path $_.FullName -NewName $newFileName -Force
 }
 
 # Replace content in files
 $fileExtensions = @("*.cs", "*.csproj", "*.sln", "*.json", "*.xml", "*.config", "*.md")
-Get-ChildItem -Path $rootPath -Recurse -Include $fileExtensions | Where-Object {
+Get-ChildItem -Path $rootPath -Recurse -Include $fileExtensions -File | Where-Object {
     $_.FullName -notlike "*\.git\*" -and $_.FullName -notlike "*\bin\*" -and $_.FullName -notlike "*\obj\*"
 } | ForEach-Object {
     $content = Get-Content $_.FullName -Raw -Encoding UTF8
