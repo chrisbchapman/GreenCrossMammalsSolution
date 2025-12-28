@@ -1,0 +1,72 @@
+# top-most EditorConfig file
+root = true
+
+############################
+# Global (all files)
+############################
+[*]
+charset = utf-8
+end_of_line = crlf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+############################
+# Visual Studio solution / MSBuild / XML
+############################
+[*.{sln,csproj,props,targets,xml,config,resx}]
+indent_size = 2
+
+############################
+# JSON / YAML
+############################
+[*.json]
+indent_size = 2
+
+[*.{yml,yaml}]
+indent_size = 2
+
+############################
+# PowerShell
+############################
+[*.ps1]
+indent_size = 4
+
+############################
+# C# / .NET code style + analyzers
+############################
+[*.cs]
+# Formatting
+dotnet_diagnostic.IDE0055.severity = error   # formatting
+
+# Unused usings (keeps code tidy, low drama)
+dotnet_diagnostic.IDE0005.severity = warning
+
+# "var" preferences (balanced)
+csharp_style_var_for_built_in_types = false:suggestion
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_elsewhere = true:suggestion
+
+# Braces (avoid one-line landmines)
+csharp_prefer_braces = true:warning
+
+# Expression-bodied members (avoid forcing it)
+csharp_style_expression_bodied_methods = false:silent
+csharp_style_expression_bodied_properties = true:silent
+
+# Nullable (doesn't force enabling nullable, but improves warnings once enabled)
+dotnet_diagnostic.CS8618.severity = warning
+dotnet_diagnostic.CS8602.severity = warning
+dotnet_diagnostic.CS8604.severity = warning
+
+# Common correctness warnings (keep as warning so builds aren’t constantly red)
+dotnet_diagnostic.CA1822.severity = suggestion  # mark members as static
+dotnet_diagnostic.CA1801.severity = suggestion  # unused parameter
+dotnet_diagnostic.CA1050.severity = silent      # declare types in namespaces (often noisy in small tools)
+
+# Optional: file-scoped namespaces (modern default; suggestion only)
+csharp_style_namespace_declarations = file_scoped:suggestion
+
+# Optional: simplify using directives sorting (VS respects this)
+dotnet_sort_system_directives_first = true

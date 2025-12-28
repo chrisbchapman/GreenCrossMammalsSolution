@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Your Name",
+  "classifications": ["Solution", "Clean Architecture", "WinForms"],
+  "identity": "GreenCross.CleanArchitecture.WinForms",
+  "name": "Clean Architecture WinForms Solution",
+  "shortName": "cleanarch-winforms",
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "sourceName": "GreenCross.App",
+  "preferNameDirectory": true,
+  "symbols": {
+    "namespace": {
+      "type": "parameter",
+      "datatype": "text",
+      "replaces": "GreenCross.App",
+      "defaultValue": "MyApp",
+      "description": "The root namespace for the solution"
+    },
+    "Framework": {
+      "type": "parameter",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net10.0",
+          "description": ".NET 10"
+        }
+      ],
+      "defaultValue": "net10.0",
+      "description": "The target framework for the project"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "**/.vs/**",
+            "**/.git/**",
+            "**/template-setup/**"
+          ]
+        }
+      ]
+    }
+  ]
+}
