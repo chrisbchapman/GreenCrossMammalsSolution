@@ -33,6 +33,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "template-setup", "template-
 		template-setup\SETUP.md = template-setup\SETUP.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "code-scripts", "code-scripts", "{DBE06380-94D8-481C-8F67-794E2982409F}"
+	ProjectSection(SolutionItems) = preProject
+		New-Entity.ps1 = New-Entity.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
