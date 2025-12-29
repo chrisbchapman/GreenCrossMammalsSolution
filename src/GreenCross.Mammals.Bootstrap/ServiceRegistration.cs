@@ -1,4 +1,4 @@
-﻿using GreenCross.Mammals.BLL;
+using GreenCross.Mammals.BLL;
 using GreenCross.Mammals.Contracts.Data;
 using GreenCross.Mammals.Contracts.Repositories;
 using GreenCross.Mammals.Contracts.Services;
@@ -76,12 +76,12 @@ public static class ServiceRegistration
         services.AddScoped<ILocationRepository, LocationRepository>();
         services.AddScoped<IValidationStatusRepository, ValidationStatusRepository>();
         services.AddScoped<IHarvestMouseRecordRepository, HarvestMouseRecordRepository>();
-        services.AddScoped<IHarvestMouseRecordService, HarvestMouseRecordService>();
 
         // BLL services
         services.AddScoped<IRecorderService, RecorderService>();
         services.AddScoped<ILocationService, LocationService>();
         services.AddScoped<IValidationStatusService, ValidationStatusService>();
+        services.AddScoped<IHarvestMouseRecordService, HarvestMouseRecordService>();
 
         return services;
     }
