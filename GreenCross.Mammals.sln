@@ -42,6 +42,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenCross.Utils.TextFiles"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenCross.Utils.WinForm", "..\GreenCrossUtilsSolution\GreenCross.Utils.WinForm\GreenCross.Utils.WinForm.csproj", "{1791BF1B-7F2D-03E4-62BC-DA2DBCF13657}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "otnet", "otnet", "{CEED836C-F662-4C5D-84FE-2EBEC3C3BC00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -161,6 +163,7 @@ Global
 		{B0F9F8F0-0BEF-4009-AA60-DFDDC0F385AA} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{D4C91E7B-DBAD-5ED9-177E-7E362F168E70} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{1791BF1B-7F2D-03E4-62BC-DA2DBCF13657} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{CEED836C-F662-4C5D-84FE-2EBEC3C3BC00} = {94E35DD0-DDFA-46A8-9587-8397763888EA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25820EF6-1B6E-406A-A02F-6A38F24D2426}

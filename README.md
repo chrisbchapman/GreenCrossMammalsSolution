@@ -64,12 +64,12 @@ A production-ready .NET 10 solution template with clean architecture for Windows
 
 2. Create initial migration:
 ```bash
-dotnet ef migrations add InitialCreate --project src\YourApp.Data --startup-project src\YourApp.UI
-```
+ dotnet ef migrations add InitialCreate --project src\GreenCross.Mammals.Data --startup-project src\GreenCross.Mammals.UI
+ ```
 
 3. Update database:
 ```bash
-dotnet ef database update --project src\YourApp.Data --startup-project src\YourApp.UI
+dotnet ef database update --project src\GreenCross.Mammals.Data --startup-project src\GreenCross.Mammals.UI
 ```
 
 ## Adding New Entities
