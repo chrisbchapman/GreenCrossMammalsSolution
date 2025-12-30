@@ -1,4 +1,4 @@
-﻿// GreenCross.<App>.UI
+// GreenCross.<App>.UI
 using GreenCross.Mammals.UI;
 using Microsoft.Extensions.DependencyInjection;
 

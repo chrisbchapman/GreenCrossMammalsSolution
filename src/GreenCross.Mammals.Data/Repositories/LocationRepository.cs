@@ -6,7 +6,7 @@ namespace GreenCross.Mammals.Data.Repositories;
 
 public class LocationRepository : Repository<Location>, ILocationRepository
 {
-    public LocationRepository(AppDbContext context) : base(context)
+    public LocationRepository(MammalDbContext context) : base(context)
     {
     }
 

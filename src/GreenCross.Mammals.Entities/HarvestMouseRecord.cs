@@ -29,7 +29,7 @@ namespace GreenCross.Mammals.Entities
         public int VerificationStatusId { get; set; }
 
         [ForeignKey("VerificationStatusId")]
-        public VerificationStatus VerificationStatus { get; set; } = null!;
+        public RecordVerificationStatus VerificationStatus { get; set; } = null!;
 
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }

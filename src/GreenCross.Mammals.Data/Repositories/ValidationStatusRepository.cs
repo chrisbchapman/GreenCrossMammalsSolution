@@ -1,4 +1,4 @@
-﻿using GreenCross.Mammals.Contracts.Repositories;
+using GreenCross.Mammals.Contracts.Repositories;
 using GreenCross.Mammals.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,7 +6,7 @@ namespace GreenCross.Mammals.Data.Repositories;
 
 public class ValidationStatusRepository : Repository<ValidationStatus>, IValidationStatusRepository
 {
-    public ValidationStatusRepository(AppDbContext context) : base(context)
+    public ValidationStatusRepository(MammalDbContext context) : base(context)
     {
     }
 

@@ -6,10 +6,10 @@ namespace GreenCross.Mammals.Data.Repositories;
 
 public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 {
-    protected readonly AppDbContext _context;
+    protected readonly MammalDbContext _context;
     protected readonly DbSet<TEntity> _dbSet;
 
-    public Repository(AppDbContext context)
+    public Repository(MammalDbContext context)
     {
         _context = context;
         _dbSet = context.Set<TEntity>();

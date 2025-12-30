@@ -22,9 +22,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\GreenCrossUtilsSolution\GreenCross.Utils.WinForm\GreenCross.Utils.WinForm.csproj" />
     <ProjectReference Include="..\GreenCross.Mammals.BLL\GreenCross.Mammals.BLL.csproj" />
     <ProjectReference Include="..\GreenCross.Mammals.Bootstrap\GreenCross.Mammals.Bootstrap.csproj" />
+    <ProjectReference Include="..\GreenCross.Mammals.Data\GreenCross.Mammals.Data.csproj" />
     <ProjectReference Include="..\GreenCross.Mammals.Entities\GreenCross.Mammals.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="CsvData\HarvestMouseRecords.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="CsvData\Recorders.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

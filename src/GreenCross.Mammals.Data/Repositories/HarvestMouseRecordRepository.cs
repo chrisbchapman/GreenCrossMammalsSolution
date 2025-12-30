@@ -1,4 +1,4 @@
-﻿using GreenCross.Mammals.Contracts.Repositories;
+using GreenCross.Mammals.Contracts.Repositories;
 using GreenCross.Mammals.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,7 +6,7 @@ namespace GreenCross.Mammals.Data.Repositories;
 
 public class HarvestMouseRecordRepository : Repository<HarvestMouseRecord>, IHarvestMouseRecordRepository
 {
-    public HarvestMouseRecordRepository(AppDbContext context) : base(context)
+    public HarvestMouseRecordRepository(MammalDbContext context) : base(context)
     {
     }
 

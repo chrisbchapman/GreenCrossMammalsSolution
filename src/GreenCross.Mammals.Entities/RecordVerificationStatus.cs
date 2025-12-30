@@ -1,6 +1,6 @@
 namespace GreenCross.Mammals.Entities;
 
-public class VerificationStatus : IEntity<int>
+public class RecordVerificationStatus : IEntity<int>
 {
     public int VerificationStatusId { get; set; }
     public string Status { get; set; } = string.Empty;

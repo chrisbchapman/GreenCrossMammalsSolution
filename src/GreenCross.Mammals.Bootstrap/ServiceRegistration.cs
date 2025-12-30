@@ -1,9 +1,11 @@
 using GreenCross.Mammals.BLL;
 using GreenCross.Mammals.Contracts.Data;
+using GreenCross.Mammals.Contracts.Dtos;
 using GreenCross.Mammals.Contracts.Repositories;
 using GreenCross.Mammals.Contracts.Services;
 using GreenCross.Mammals.Data;
 using GreenCross.Mammals.Data.Repositories;
+using GreenCross.Utils.TextFiles.Csv;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +19,7 @@ public static class ServiceRegistration
         IConfiguration configuration)
     {
         // Data / EF
-        services.AddDbContext<AppDbContext>(options =>
+        services.AddDbContext<MammalDbContext>(options =>
         {
             options.UseSqlServer(
                 configuration.GetConnectionString("AppDb"),
@@ -48,7 +50,7 @@ public static class ServiceRegistration
         }, ServiceLifetime.Scoped);
 
         // Use pooling for better performance
-        services.AddDbContextPool<AppDbContext>(options =>
+        services.AddDbContextPool<MammalDbContext>(options =>
         {
             options.UseSqlServer(
                 configuration.GetConnectionString("AppDb"),
@@ -77,11 +79,23 @@ public static class ServiceRegistration
         services.AddScoped<IValidationStatusRepository, ValidationStatusRepository>();
         services.AddScoped<IHarvestMouseRecordRepository, HarvestMouseRecordRepository>();
 
+        services.AddScoped<MammalCsvImporterFactory>();
+        services.AddScoped<ICsvImporter<RecorderDto>, RecordersCsvImporterFactory>();
+        services.AddScoped<RecordersCsvImporterFactory>();
+        services.AddScoped<ICsvImporter<HarvestMouseRecordDto>, HarvestMouseRecordCsvImporterFactory>();
+        services.AddScoped<HarvestMouseRecordCsvImporterFactory>();
+        services.AddScoped<ICsvImporter<RecordVerificationStatusDto>, RecordVerificationStatusCsvImporterFactory>();
+        services.AddScoped<RecordVerificationStatusCsvImporterFactory>();
+        services.AddScoped<ICsvImporter<LocationDto>, LocationsCsvImporterFactory>();
+        services.AddScoped<LocationsCsvImporterFactory>();
+
         // BLL services
         services.AddScoped<IRecorderService, RecorderService>();
         services.AddScoped<ILocationService, LocationService>();
         services.AddScoped<IValidationStatusService, ValidationStatusService>();
         services.AddScoped<IHarvestMouseRecordService, HarvestMouseRecordService>();
+
+
 
         return services;
     }

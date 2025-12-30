@@ -4,14 +4,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GreenCross.Mammals.Data
 {
-    public sealed class AppDbContext : DbContext
+    public sealed class MammalDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options)
+        public MammalDbContext(DbContextOptions<MammalDbContext> options)
             : base(options)
         {
         }
 
-        public DbSet<Recorder> FirstEntities => Set<Recorder>();
+        public DbSet<Recorder> Recorders => Set<Recorder>();
+        public DbSet<HarvestMouseRecord> HarvestMouseRecords => Set<HarvestMouseRecord>();
+        public DbSet<Location> Locations => Set<Location>();
+        public DbSet<RecordVerificationStatus> RecordVerificationStatuses => Set<RecordVerificationStatus>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

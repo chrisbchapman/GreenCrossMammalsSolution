@@ -1,14 +1,14 @@
-﻿using GreenCross.Mammals.Contracts.Data;
+using GreenCross.Mammals.Contracts.Data;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace GreenCross.Mammals.Data;
 
 public class UnitOfWork : IUnitOfWork
 {
-    private readonly AppDbContext _context;
+    private readonly MammalDbContext _context;
     private IDbContextTransaction? _transaction;
 
-    public UnitOfWork(AppDbContext context)
+    public UnitOfWork(MammalDbContext context)
     {
         _context = context;
     }

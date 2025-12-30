@@ -6,7 +6,7 @@ namespace GreenCross.Mammals.Data.Repositories;
 
 public class RecorderRepository : Repository<Recorder>, IRecorderRepository
 {
-    public RecorderRepository(AppDbContext context) : base(context)
+    public RecorderRepository(MammalDbContext context) : base(context)
     {
     }
 

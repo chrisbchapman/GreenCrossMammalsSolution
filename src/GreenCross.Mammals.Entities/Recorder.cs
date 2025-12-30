@@ -8,14 +8,14 @@ public class Recorder : IEntity<int>
         set => RecorderId = value;
     }
 
-    public required int RecorderId { get; set; }
-    public required string Name { get; set; }
-    public required string Initials { get; set; }
-    public bool WildlifeGroupMember { get; set; }
+    public required int RecorderId { get; set; } = 0;
+    public required string Name { get; set; } = string.Empty;
+    public required string Initials { get; set; } = string.Empty;
+    public bool WildlifeGroupMember { get; set; } = false;
 
-    public DateTime CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime? UpdatedAt { get; set; }
-    public string? CreatedBy { get; set; }
-    public string? UpdatedBy { get; set; }
+    public string? CreatedBy { get; set; } = string.Empty;
+    public string? UpdatedBy { get; set; } = string.Empty;
     public bool IsDeleted { get; set; }
 }
