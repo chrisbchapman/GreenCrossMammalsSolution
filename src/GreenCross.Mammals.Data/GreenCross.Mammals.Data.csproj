@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\GreenCrossUtilsSolution\GreenCross.Utils.EntityFramework\GreenCross.Utils.EntityFramework.csproj" />
     <ProjectReference Include="..\..\..\GreenCrossUtilsSolution\GreenCross.Utils.TextFiles\GreenCross.Utils.TextFiles.csproj" />
     <ProjectReference Include="..\GreenCross.Mammals.Contracts\GreenCross.Mammals.Contracts.csproj" />
     <ProjectReference Include="..\GreenCross.Mammals.Entities\GreenCross.Mammals.Entities.csproj" />

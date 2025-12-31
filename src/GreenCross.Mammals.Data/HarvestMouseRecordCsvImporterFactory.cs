@@ -1,6 +1,7 @@
 using GreenCross.Mammals.Contracts.Dtos;
 using GreenCross.Mammals.Data.Mappings;
 using GreenCross.Mammals.Entities;
+using GreenCross.Utils.EntityFramework;
 using GreenCross.Utils.TextFiles.Csv;
 using Microsoft.EntityFrameworkCore;
 
@@ -46,21 +47,7 @@ public class HarvestMouseRecordCsvImporterFactory : CsvImporterBase<HarvestMouse
             }
         }
 
-        using (var transaction = await _context.Database.BeginTransactionAsync())
-        {
-            try
-            {
-                await _context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Reporters ON");
-                await _context.SaveChangesAsync();
-                await _context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Reporters OFF");
-                await transaction.CommitAsync();
-            }
-            catch
-            {
-                await transaction.RollbackAsync();
-                throw;
-            }
-        }
+        await DbContextHelper.SaveChangesWithIdentityInsertAsync(_context, "HarvestMouseRecords");
 
         return result;
     }
