@@ -1,7 +1,6 @@
 using GreenCross.Mammals.Contracts.Dtos;
 using GreenCross.Mammals.Data.Mappings;
 using GreenCross.Mammals.Entities;
-using GreenCross.Utils.EntityFramework;
 using GreenCross.Utils.TextFiles.Csv;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,20 +16,20 @@ public class RecordVerificationStatusCsvImporterFactory : CsvImporterBase<Record
     }
 
     public override string DataTypeName => "Record Verification Statuses";
-    protected override async Task<ImportResult> ProcessRecordsAsync(List<RecordVerificationStatusDto> records, ImportResult result)
+    protected override async Task<ImportResult> ProcessRecordsAsync(List<RecordVerificationStatusDto> records, ImportResult result, IProgress<int>? progress = null)
     {
         var uniqueRecords = records
             .GroupBy(rvs => rvs.Status)
             .Select(g => g.First())
             .ToList();
 
-        foreach (var record in uniqueRecords)
+        await ProcessRecordsWithProgressAsync(uniqueRecords, async (record, index) =>
         {
             try
             {
                 var status = new RecordVerificationStatus
                 {
-                    Id = 0, // Will be set by IDENTITY_INSERT
+                    RecordVerificationStatusId = 0, // Will be set by IDENTITY_INSERT
                     Status = record.Status
                 };
 
@@ -41,10 +40,9 @@ public class RecordVerificationStatusCsvImporterFactory : CsvImporterBase<Record
             {
                 result.Errors.Add($"Error importing record '{record.Status}': {ex.Message}");
             }
-        }
+        }, progress);
 
-        await DbContextHelper.SaveChangesWithIdentityInsertAsync(_context, "RecordVerificationStatuses");
-
+        await _context.SaveChangesAsync();
         return result;
     }
 }

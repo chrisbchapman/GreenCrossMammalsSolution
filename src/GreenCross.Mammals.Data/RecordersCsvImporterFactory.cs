@@ -1,7 +1,6 @@
 using GreenCross.Mammals.Contracts.Dtos;
 using GreenCross.Mammals.Data.Mappings;
 using GreenCross.Mammals.Entities;
-using GreenCross.Utils.EntityFramework;
 using GreenCross.Utils.TextFiles.Csv;
 
 namespace GreenCross.Mammals.Data;
@@ -17,9 +16,9 @@ public class RecordersCsvImporterFactory : CsvImporterBase<RecorderDto, Recorder
         _context = context;
     }
 
-    protected override async Task<ImportResult> ProcessRecordsAsync(List<RecorderDto> records, ImportResult result)
+    protected override async Task<ImportResult> ProcessRecordsAsync(List<RecorderDto> records, ImportResult result, IProgress<int>? progress = null)
     {
-        foreach (var record in records)
+        await ProcessRecordsWithProgressAsync(records, async (record, index) =>
         {
             try
             {
@@ -38,10 +37,9 @@ public class RecordersCsvImporterFactory : CsvImporterBase<RecorderDto, Recorder
             {
                 result.Errors.Add($"Error importing record '{record.Name}': {ex.Message}");
             }
-        }
+        }, progress);
 
-        await DbContextHelper.SaveChangesWithIdentityInsertAsync(_context, "Recorders");
-
+        await _context.SaveChangesAsync();
         return result;
     }
 }

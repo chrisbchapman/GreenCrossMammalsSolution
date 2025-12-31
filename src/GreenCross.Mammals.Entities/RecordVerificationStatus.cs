@@ -2,10 +2,10 @@ namespace GreenCross.Mammals.Entities;
 
 public class RecordVerificationStatus : IEntity<int>
 {
-    public int VerificationStatusId { get; set; }
+    public int RecordVerificationStatusId { get; set; }
     public string Status { get; set; } = string.Empty;
 
-    public int Id { get => VerificationStatusId; set => VerificationStatusId = value; }
+    public int Id { get => RecordVerificationStatusId; set => RecordVerificationStatusId = value; }
     public DateTime CreatedAt { get; set; }
     public DateTime? UpdatedAt { get; set; }
     public string? CreatedBy { get; set; }

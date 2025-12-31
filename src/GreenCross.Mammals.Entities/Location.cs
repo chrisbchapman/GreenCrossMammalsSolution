@@ -1,4 +1,3 @@
-
 namespace GreenCross.Mammals.Entities
 {
     public class Location : IEntity<int>
@@ -6,10 +5,17 @@ namespace GreenCross.Mammals.Entities
         public int LocationId { get; set; }
         public string Easting { get; set; } = string.Empty;
         public string Northing { get; set; } = string.Empty;
-
         public string LocationName { get; set; } = string.Empty;
-        public int Id { get => LocationId; set => LocationId = value; }
-        public DateTime CreatedAt { get; set; }
+
+        public string FullGridRef => $"{Easting} {Northing}";
+
+        public int Id
+        {
+            get => LocationId;
+            set => LocationId = value;
+        }
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedAt { get; set; }
         public string? CreatedBy { get; set; }
         public string? UpdatedBy { get; set; }
