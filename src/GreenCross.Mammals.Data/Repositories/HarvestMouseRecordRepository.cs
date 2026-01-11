@@ -82,4 +82,29 @@ public class HarvestMouseRecordRepository : Repository<HarvestMouseRecord>, IHar
             .ThenBy(r => r.MonadSquare)
             .ToList();
     }
+
+    public async Task<IEnumerable<HarvestMouseNestMonadExportDto>> GetNestCountByMonadAsync(CancellationToken cancellationToken = default)
+    {
+        var records = await _dbSet
+            .AsNoTracking()
+            .Include(h => h.Location)
+            .Where(h => !h.IsDeleted)
+            .Select(h => new
+            {
+                h.Location.Latitude,
+                h.Location.Longitude
+            })
+            .ToListAsync(cancellationToken);
+
+        return records
+            .Select(r => OSGridReferenceHelper.ToMonadGridReference(r.Latitude, r.Longitude))
+            .GroupBy(monadSquare => monadSquare)
+            .Select(g => new HarvestMouseNestMonadExportDto
+            {
+                MonadSquare = g.Key,
+                NestCount = g.Count()
+            })
+            .OrderBy(r => r.MonadSquare)
+            .ToList();
+    }
 }

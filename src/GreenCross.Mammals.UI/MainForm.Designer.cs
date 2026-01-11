@@ -38,6 +38,7 @@ partial class MainForm
         fullListToolStripMenuItem = new ToolStripMenuItem();
         exportCSVsToolStripMenuItem = new ToolStripMenuItem();
         forQGISToolStripMenuItem = new ToolStripMenuItem();
+        monadCountToolStripMenuItem = new ToolStripMenuItem();
         menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
@@ -95,13 +96,13 @@ partial class MainForm
         // fullListToolStripMenuItem
         // 
         fullListToolStripMenuItem.Name = "fullListToolStripMenuItem";
-        fullListToolStripMenuItem.Size = new Size(180, 22);
+        fullListToolStripMenuItem.Size = new Size(114, 22);
         fullListToolStripMenuItem.Text = "Full List";
         fullListToolStripMenuItem.Click += FullListToolStripMenuItem_Click;
         // 
         // exportCSVsToolStripMenuItem
         // 
-        exportCSVsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { forQGISToolStripMenuItem });
+        exportCSVsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { forQGISToolStripMenuItem, monadCountToolStripMenuItem });
         exportCSVsToolStripMenuItem.Name = "exportCSVsToolStripMenuItem";
         exportCSVsToolStripMenuItem.Size = new Size(81, 20);
         exportCSVsToolStripMenuItem.Text = "Export CSVs";
@@ -109,9 +110,16 @@ partial class MainForm
         // forQGISToolStripMenuItem
         // 
         forQGISToolStripMenuItem.Name = "forQGISToolStripMenuItem";
-        forQGISToolStripMenuItem.Size = new Size(180, 22);
-        forQGISToolStripMenuItem.Text = "For QGIS";
+        forQGISToolStripMenuItem.Size = new Size(196, 22);
+        forQGISToolStripMenuItem.Text = "Monad Year and Count";
         forQGISToolStripMenuItem.Click += ForQGISToolStripMenuItem_Click;
+        // 
+        // monadCountToolStripMenuItem
+        // 
+        monadCountToolStripMenuItem.Name = "monadCountToolStripMenuItem";
+        monadCountToolStripMenuItem.Size = new Size(196, 22);
+        monadCountToolStripMenuItem.Text = "Monad Count";
+        monadCountToolStripMenuItem.Click += MonadCountToolStripMenuItem_Click;
         // 
         // MainForm
         // 
@@ -141,4 +149,5 @@ partial class MainForm
     private ToolStripMenuItem fullListToolStripMenuItem;
     private ToolStripMenuItem exportCSVsToolStripMenuItem;
     private ToolStripMenuItem forQGISToolStripMenuItem;
+    private ToolStripMenuItem monadCountToolStripMenuItem;
 }

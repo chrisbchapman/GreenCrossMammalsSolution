@@ -69,4 +69,12 @@ public partial class MainForm : Form
             ExportDataType.HarvestMouseRecordsForQGIS1KmFile);
         exportForm.ShowDialog();
     }
+
+    private void MonadCountToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        var exportForm = new GenericCsvExportForm<ExportDataType>(_exportFactory,
+            ExportDataType.HarvestMouseNestsByMonadFile);
+        exportForm.ShowDialog();
+
+    }
 }

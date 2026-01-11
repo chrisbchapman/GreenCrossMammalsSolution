@@ -23,6 +23,7 @@ public class MammalCsvExporterFactory : CsvExporterFactory<ExportDataType>
         var fileName = dataType switch
         {
             ExportDataType.HarvestMouseRecordsForQGIS1KmFile => Configuration["CsvExportSettings:HarvestMouseRecordsForQGIS1KmFile"],
+            ExportDataType.HarvestMouseNestsByMonadFile => Configuration["CsvExportSettings:HarvestMouseNestsByMonadFile"],
             _ => null
         };
 
@@ -34,6 +35,7 @@ public class MammalCsvExporterFactory : CsvExporterFactory<ExportDataType>
         return dataType switch
         {
             ExportDataType.HarvestMouseRecordsForQGIS1KmFile => ServiceProvider.GetService<HarvestMouseRecords1KmCsvExporter>(),
+            ExportDataType.HarvestMouseNestsByMonadFile => ServiceProvider.GetService<HarvestMouseNestsMonadCsvExporter>(),
             _ => null
         };
     }

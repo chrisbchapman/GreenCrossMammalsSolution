@@ -96,7 +96,7 @@ public static class ServiceRegistration
         services.AddScoped<IValidationStatusService, ValidationStatusService>();
         services.AddScoped<IHarvestMouseRecordService, HarvestMouseRecordService>();
         services.AddScoped<HarvestMouseRecords1KmCsvExporter>();
-
+        services.AddScoped<HarvestMouseNestsMonadCsvExporter>();
 
         return services;
     }
