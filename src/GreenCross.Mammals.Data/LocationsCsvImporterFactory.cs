@@ -31,8 +31,8 @@ public class LocationsCsvImporterFactory : CsvImporterBase<LocationDto, Location
                 var location = new Location
                 {
                     LocationId = 0, // Will be set by IDENTITY_INSERT
-                    Easting = record.GridReference.Split(' ')[0],
-                    Northing = record.GridReference.Split(' ')[1],
+                    Latitude = record.GridReference.Split(' ')[0],
+                    Longitude = record.GridReference.Split(' ')[1],
                 };
 
                 _context.Locations.Add(location);

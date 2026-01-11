@@ -80,6 +80,7 @@ public static class ServiceRegistration
         services.AddScoped<IHarvestMouseRecordRepository, HarvestMouseRecordRepository>();
 
         services.AddScoped<MammalCsvImporterFactory>();
+        services.AddScoped<MammalCsvExporterFactory>();
         services.AddScoped<ICsvImporter<RecorderDto>, RecordersCsvImporterFactory>();
         services.AddScoped<RecordersCsvImporterFactory>();
         services.AddScoped<ICsvImporter<HarvestMouseRecordDto>, HarvestMouseRecordCsvImporterFactory>();
@@ -94,7 +95,7 @@ public static class ServiceRegistration
         services.AddScoped<ILocationService, LocationService>();
         services.AddScoped<IValidationStatusService, ValidationStatusService>();
         services.AddScoped<IHarvestMouseRecordService, HarvestMouseRecordService>();
-
+        services.AddScoped<HarvestMouseRecords1KmCsvExporter>();
 
 
         return services;

@@ -3,11 +3,11 @@ namespace GreenCross.Mammals.Entities
     public class Location : IEntity<int>
     {
         public int LocationId { get; set; }
-        public string Easting { get; set; } = string.Empty;
-        public string Northing { get; set; } = string.Empty;
+        public string Latitude { get; set; } = string.Empty;
+        public string Longitude { get; set; } = string.Empty;
         public string LocationName { get; set; } = string.Empty;
 
-        public string FullGridRef => $"{Easting} {Northing}";
+        public string FullGridRef => $"{Latitude} {Longitude}";
 
         public int Id
         {

@@ -23,11 +23,11 @@ public class LocationConfiguration : IEntityTypeConfiguration<Location>
             .HasDefaultValueSql("GETUTCDATE()");
 
         // Optional: Add constraints or indexes
-        builder.Property(e => e.Easting)
+        builder.Property(e => e.Latitude)
             .HasMaxLength(10)
             .IsRequired();
 
-        builder.Property(e => e.Northing)
+        builder.Property(e => e.Longitude)
             .HasMaxLength(10)
             .IsRequired();
     }

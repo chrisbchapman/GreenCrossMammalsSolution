@@ -1,4 +1,4 @@
-﻿namespace GreenCross.Mammals.Entities;
+namespace GreenCross.Mammals.Entities;
 
 public abstract class BaseEntity
 {

@@ -34,12 +34,16 @@ partial class MainForm
         importLocationsToolStripMenuItem = new ToolStripMenuItem();
         importRecordersToolStripMenuItem = new ToolStripMenuItem();
         importHarvestMouiseRecordsToolStripMenuItem = new ToolStripMenuItem();
+        reportsToolStripMenuItem = new ToolStripMenuItem();
+        fullListToolStripMenuItem = new ToolStripMenuItem();
+        exportCSVsToolStripMenuItem = new ToolStripMenuItem();
+        forQGISToolStripMenuItem = new ToolStripMenuItem();
         menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
         // menuStrip1
         // 
-        menuStrip1.Items.AddRange(new ToolStripItem[] { importCSVToolStripMenuItem });
+        menuStrip1.Items.AddRange(new ToolStripItem[] { importCSVToolStripMenuItem, reportsToolStripMenuItem, exportCSVsToolStripMenuItem });
         menuStrip1.Location = new Point(0, 0);
         menuStrip1.Name = "menuStrip1";
         menuStrip1.Size = new Size(800, 24);
@@ -81,12 +85,41 @@ partial class MainForm
         importHarvestMouiseRecordsToolStripMenuItem.Text = "Import Harvest Mouse Records ...";
         importHarvestMouiseRecordsToolStripMenuItem.Click += importHarvestMouiseRecordsToolStripMenuItem_Click;
         // 
+        // reportsToolStripMenuItem
+        // 
+        reportsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fullListToolStripMenuItem });
+        reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+        reportsToolStripMenuItem.Size = new Size(59, 20);
+        reportsToolStripMenuItem.Text = "Reports";
+        // 
+        // fullListToolStripMenuItem
+        // 
+        fullListToolStripMenuItem.Name = "fullListToolStripMenuItem";
+        fullListToolStripMenuItem.Size = new Size(180, 22);
+        fullListToolStripMenuItem.Text = "Full List";
+        fullListToolStripMenuItem.Click += FullListToolStripMenuItem_Click;
+        // 
+        // exportCSVsToolStripMenuItem
+        // 
+        exportCSVsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { forQGISToolStripMenuItem });
+        exportCSVsToolStripMenuItem.Name = "exportCSVsToolStripMenuItem";
+        exportCSVsToolStripMenuItem.Size = new Size(81, 20);
+        exportCSVsToolStripMenuItem.Text = "Export CSVs";
+        // 
+        // forQGISToolStripMenuItem
+        // 
+        forQGISToolStripMenuItem.Name = "forQGISToolStripMenuItem";
+        forQGISToolStripMenuItem.Size = new Size(180, 22);
+        forQGISToolStripMenuItem.Text = "For QGIS";
+        forQGISToolStripMenuItem.Click += ForQGISToolStripMenuItem_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
         Controls.Add(menuStrip1);
+        IsMdiContainer = true;
         MainMenuStrip = menuStrip1;
         Name = "MainForm";
         Text = "Green Cross Mammals App";
@@ -104,4 +137,8 @@ partial class MainForm
     private ToolStripMenuItem importHarvestMouiseRecordsToolStripMenuItem;
     private ToolStripMenuItem importRecordVeriicationStatusesToolStripMenuItem;
     private ToolStripMenuItem importLocationsToolStripMenuItem;
+    private ToolStripMenuItem reportsToolStripMenuItem;
+    private ToolStripMenuItem fullListToolStripMenuItem;
+    private ToolStripMenuItem exportCSVsToolStripMenuItem;
+    private ToolStripMenuItem forQGISToolStripMenuItem;
 }

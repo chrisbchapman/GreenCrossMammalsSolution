@@ -18,6 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		README.md = README.md
+		..\VS_Hints.md = ..\VS_Hints.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenCross.Mammals.Bootstrap", "src\GreenCross.Mammals.Bootstrap\GreenCross.Mammals.Bootstrap.csproj", "{E6A206CA-DF81-40E9-A0B3-2E138EDBF75B}"
@@ -47,6 +48,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenCross.Utils.EntityFramework", "..\GreenCrossUtilsSolution\GreenCross.Utils.EntityFramework\GreenCross.Utils.EntityFramework.csproj", "{F44AA14E-69B2-A8D1-95F2-F310BB853BFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenCross.Utils.Attributes", "..\GreenCrossUtilsSolution\GreenCross.Utils.Attributes\GreenCross.Utils.Attributes.csproj", "{3822A4FE-1F2B-BC3A-1808-CBB2526C79BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenCross.Utils.Geo", "..\GreenCrossUtilsSolution\GreenCross.Utils.Geo\GreenCross.Utils.Geo.csproj", "{9B6304DB-B2A7-F7AA-F0B0-604E7A589716}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -178,6 +181,18 @@ Global
 		{3822A4FE-1F2B-BC3A-1808-CBB2526C79BE}.Release|x64.Build.0 = Release|Any CPU
 		{3822A4FE-1F2B-BC3A-1808-CBB2526C79BE}.Release|x86.ActiveCfg = Release|Any CPU
 		{3822A4FE-1F2B-BC3A-1808-CBB2526C79BE}.Release|x86.Build.0 = Release|Any CPU
+		{9B6304DB-B2A7-F7AA-F0B0-604E7A589716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B6304DB-B2A7-F7AA-F0B0-604E7A589716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B6304DB-B2A7-F7AA-F0B0-604E7A589716}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9B6304DB-B2A7-F7AA-F0B0-604E7A589716}.Debug|x64.Build.0 = Debug|Any CPU
+		{9B6304DB-B2A7-F7AA-F0B0-604E7A589716}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9B6304DB-B2A7-F7AA-F0B0-604E7A589716}.Debug|x86.Build.0 = Debug|Any CPU
+		{9B6304DB-B2A7-F7AA-F0B0-604E7A589716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B6304DB-B2A7-F7AA-F0B0-604E7A589716}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B6304DB-B2A7-F7AA-F0B0-604E7A589716}.Release|x64.ActiveCfg = Release|Any CPU
+		{9B6304DB-B2A7-F7AA-F0B0-604E7A589716}.Release|x64.Build.0 = Release|Any CPU
+		{9B6304DB-B2A7-F7AA-F0B0-604E7A589716}.Release|x86.ActiveCfg = Release|Any CPU
+		{9B6304DB-B2A7-F7AA-F0B0-604E7A589716}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -194,6 +209,7 @@ Global
 		{CEED836C-F662-4C5D-84FE-2EBEC3C3BC00} = {94E35DD0-DDFA-46A8-9587-8397763888EA}
 		{F44AA14E-69B2-A8D1-95F2-F310BB853BFE} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{3822A4FE-1F2B-BC3A-1808-CBB2526C79BE} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{9B6304DB-B2A7-F7AA-F0B0-604E7A589716} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25820EF6-1B6E-406A-A02F-6A38F24D2426}

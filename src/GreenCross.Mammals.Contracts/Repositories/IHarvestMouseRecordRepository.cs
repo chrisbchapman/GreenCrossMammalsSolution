@@ -1,9 +1,10 @@
-﻿using GreenCross.Mammals.Entities;
+using GreenCross.Mammals.Contracts.Dtos;
+using GreenCross.Mammals.Entities;
 
 namespace GreenCross.Mammals.Contracts.Repositories;
 
 public interface IHarvestMouseRecordRepository : IRepository<HarvestMouseRecord>
 {
-    // Add any HarvestMouseRecord-specific repository methods here if needed
-    // Example: Task<IEnumerable<HarvestMouseRecord>> GetByTypeAsync(string type, CancellationToken cancellationToken = default);
+    Task<IEnumerable<HarvestMouseRecordGridDto>> GetRecordsForGridAsync(CancellationToken cancellationToken = default);
+    Task<IEnumerable<HarvestMouseNest1KmExportDto>> GetNestCountBy1KmSquareAsync(CancellationToken cancellationToken = default);
 }

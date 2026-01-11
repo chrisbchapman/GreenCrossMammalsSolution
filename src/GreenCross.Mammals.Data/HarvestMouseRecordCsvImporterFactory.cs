@@ -64,7 +64,7 @@ public class HarvestMouseRecordCsvImporterFactory : CsvImporterBase<HarvestMouse
                 var locationKey = (easting, northing);
                 if (!locationCache.TryGetValue(locationKey, out var location))
                 {
-                    location = await importContext.Locations.AsNoTracking().FirstOrDefaultAsync(l => l.Easting == easting && l.Northing == northing)
+                    location = await importContext.Locations.AsNoTracking().FirstOrDefaultAsync(l => l.Latitude == easting && l.Longitude == northing)
                                ?? throw new Exception($"Location with grid reference '{record.GridRef}' not found.");
                     locationCache[locationKey] = location;
                 }
