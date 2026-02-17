@@ -107,4 +107,31 @@ public class HarvestMouseRecordRepository : Repository<HarvestMouseRecord>, IHar
             .OrderBy(r => r.MonadSquare)
             .ToList();
     }
+
+    public async Task<IEnumerable<HarvestMouseNestLocationExportDto>> GetNestLocationAsync(CancellationToken cancellationToken = default)
+    {
+        var records = await _dbSet
+            .AsNoTracking()
+            .Include(h => h.Location)
+            .Where(h => !h.IsDeleted)
+            .Select(h => new
+            {
+                h.Location.Latitude,
+                h.Location.Longitude
+            })
+            .ToListAsync(cancellationToken);
+
+        return records
+            .Where(r => double.TryParse(r.Latitude, out var lat) && lat < 50.917)
+            .GroupBy(r => new { r.Latitude, r.Longitude })
+            .Select(g => new HarvestMouseNestLocationExportDto
+            {
+                Latitude = double.Parse(g.Key.Latitude).ToString(),
+                Longitude = double.Parse(g.Key.Longitude).ToString(),
+                NestCount = g.Count()
+            })
+            .OrderBy(r => r.Latitude)
+            .ThenBy(r => r.Longitude)
+            .ToList();
+    }
 }

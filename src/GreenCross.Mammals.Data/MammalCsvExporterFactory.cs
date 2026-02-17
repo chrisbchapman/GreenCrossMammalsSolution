@@ -24,6 +24,7 @@ public class MammalCsvExporterFactory : CsvExporterFactory<ExportDataType>
         {
             ExportDataType.HarvestMouseRecordsForQGIS1KmFile => Configuration["CsvExportSettings:HarvestMouseRecordsForQGIS1KmFile"],
             ExportDataType.HarvestMouseNestsByMonadFile => Configuration["CsvExportSettings:HarvestMouseNestsByMonadFile"],
+            ExportDataType.HarvestMouseNestsByLocation => Configuration["CsvExportSettings:HarvestMouseNestsByLocationFile"],
             _ => null
         };
 
@@ -36,6 +37,7 @@ public class MammalCsvExporterFactory : CsvExporterFactory<ExportDataType>
         {
             ExportDataType.HarvestMouseRecordsForQGIS1KmFile => ServiceProvider.GetService<HarvestMouseRecords1KmCsvExporter>(),
             ExportDataType.HarvestMouseNestsByMonadFile => ServiceProvider.GetService<HarvestMouseNestsMonadCsvExporter>(),
+            ExportDataType.HarvestMouseNestsByLocation => ServiceProvider.GetService<HarvestMouseNestLocationCsvExporter>(),
             _ => null
         };
     }

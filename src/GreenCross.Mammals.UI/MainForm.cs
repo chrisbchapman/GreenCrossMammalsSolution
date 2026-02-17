@@ -77,4 +77,11 @@ public partial class MainForm : Form
         exportForm.ShowDialog();
 
     }
+
+    private void NestLocationToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        var exportForm = new GenericCsvExportForm<ExportDataType>(_exportFactory,
+            ExportDataType.HarvestMouseNestsByLocation);
+        exportForm.ShowDialog();
+    }
 }

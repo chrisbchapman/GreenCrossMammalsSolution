@@ -97,6 +97,7 @@ public static class ServiceRegistration
         services.AddScoped<IHarvestMouseRecordService, HarvestMouseRecordService>();
         services.AddScoped<HarvestMouseRecords1KmCsvExporter>();
         services.AddScoped<HarvestMouseNestsMonadCsvExporter>();
+        services.AddScoped<HarvestMouseNestLocationCsvExporter>();
 
         return services;
     }

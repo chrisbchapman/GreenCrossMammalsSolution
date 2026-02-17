@@ -39,6 +39,7 @@ partial class MainForm
         exportCSVsToolStripMenuItem = new ToolStripMenuItem();
         forQGISToolStripMenuItem = new ToolStripMenuItem();
         monadCountToolStripMenuItem = new ToolStripMenuItem();
+        nestLocationToolStripMenuItem = new ToolStripMenuItem();
         menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
@@ -102,7 +103,7 @@ partial class MainForm
         // 
         // exportCSVsToolStripMenuItem
         // 
-        exportCSVsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { forQGISToolStripMenuItem, monadCountToolStripMenuItem });
+        exportCSVsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { forQGISToolStripMenuItem, monadCountToolStripMenuItem, nestLocationToolStripMenuItem });
         exportCSVsToolStripMenuItem.Name = "exportCSVsToolStripMenuItem";
         exportCSVsToolStripMenuItem.Size = new Size(81, 20);
         exportCSVsToolStripMenuItem.Text = "Export CSVs";
@@ -120,6 +121,13 @@ partial class MainForm
         monadCountToolStripMenuItem.Size = new Size(196, 22);
         monadCountToolStripMenuItem.Text = "Monad Count";
         monadCountToolStripMenuItem.Click += MonadCountToolStripMenuItem_Click;
+        // 
+        // nestLocationToolStripMenuItem
+        // 
+        nestLocationToolStripMenuItem.Name = "nestLocationToolStripMenuItem";
+        nestLocationToolStripMenuItem.Size = new Size(196, 22);
+        nestLocationToolStripMenuItem.Text = "Nest Location";
+        nestLocationToolStripMenuItem.Click += NestLocationToolStripMenuItem_Click;
         // 
         // MainForm
         // 
@@ -150,4 +158,5 @@ partial class MainForm
     private ToolStripMenuItem exportCSVsToolStripMenuItem;
     private ToolStripMenuItem forQGISToolStripMenuItem;
     private ToolStripMenuItem monadCountToolStripMenuItem;
+    private ToolStripMenuItem nestLocationToolStripMenuItem;
 }
